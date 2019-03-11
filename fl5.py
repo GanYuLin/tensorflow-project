@@ -4,6 +4,7 @@ activation function
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 def add_layer(inputs,in_size,out_size,activation_function=None):
     #随机值
@@ -47,7 +48,7 @@ plt.show()
 
 
 # 运行并输出结果
-for i in range(10000):
+for i in range(1000):
     sess.run(train_step,feed_dict={xs:x_data,ys:y_data})
     if i%50==0:
         # to see step improvement
@@ -60,6 +61,7 @@ for i in range(10000):
         lines=ax.plot(x_data,prediction_value,'r-',lw=5)
         # ax=lines.remove(lines[0])
         plt.pause(0.1)
+time.sleep(10)
 
 
 

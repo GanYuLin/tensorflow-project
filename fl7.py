@@ -44,7 +44,7 @@ with tf.name_scope('train'):
 
 #初始化变量
 sess=tf.Session()
-#合并
+#合并summary
 merged=tf.summary.merge_all()
 
 writer = tf.summary.FileWriter("logs/",sess.graph)
@@ -53,7 +53,7 @@ writer = tf.summary.FileWriter("logs/",sess.graph)
 sess.run(tf.initialize_all_variables())
 
 # 运行并输出结果
-for i in range(10000):
+for i in range(1000):
     sess.run(train_step,feed_dict={xs:x_data,ys:y_data})
     if i%40==0:
         result=sess.run(merged,feed_dict={xs:x_data,ys:y_data})
